@@ -2,9 +2,9 @@ package sec.project.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,6 +38,16 @@ public class SignupController {
         List<Signup> signups = signupRepository.findAll();
         model.addAttribute("signups", signups);
         return "all";
+    }
+    
+    @RequestMapping(value = "/signups/{id}", method = RequestMethod.GET)
+    public String listSingleSignup(@PathVariable long id,Model model) {
+        Signup s = signupRepository.findOne(id);
+        if (s != null) {
+            model.addAttribute("signup", s);
+            return "signup";
+        }
+        else return "404";
     }
 
 }

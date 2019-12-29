@@ -5,15 +5,16 @@
     </head>
     <body>
 
-        <h1>All sign-ups:</h1>
+        <h1>Single signup:</h1>
         <table>
             <thead>
                 <td>Name</td>
                 <td>Address</td>
             </thead>
             <tbody> 
-                <tr th:each="signup : ${signups}">
-                    <td><a th:text="${signup.name}" th:href="@{'/signups/' + ${signup.id}}"></a></td>
+                <tr>
+                    <td th:text="${signup.name}" ></td>
+                    <td th:utext="${signup.address}"></td>
                 </tr>
             </tbody>
         </table>
