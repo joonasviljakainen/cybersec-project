@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Registration form</title>
+    </head>
+    <body>
+
+        <h1>Register to see who has signed up to the event.</h1>
+
+        <form action="#" th:action="@{/register}" method="POST">
+            <p><label for="username">Name</label>: <input type="text" name="username" id="username"/></p>
+            <p><label for="password">Address</label>: <input type="text" name="password" id="password"/></p>
+            <p><input type="submit" value="Register" /></p>
+        </form>
+
+        <p></p>
+    </body>
+</html>
